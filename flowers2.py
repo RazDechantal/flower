@@ -22,12 +22,13 @@ def contents_of_file(filename):
   with open(filename, "r") as csvfile:
     # Read the rows of the file
     rows = csv.reader(csvfile)
+    next(rows, None)
     # Process each row
     for row in rows:
       name, color, type = row
       # Format the return string for data rows only
 
-      return_string += "a {} {} is {}\n".format(name, color, type)
+      return_string += "a {} {} is {}\n".format(color, name, type)
   return return_string
 
 #Call the function
